@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SA Heritage Sites</string>
+    <string name="title_activity_maps">Heritage Map</string>
+    <string name="txt_image_slider">Image Slideshow</string>
+</resources>

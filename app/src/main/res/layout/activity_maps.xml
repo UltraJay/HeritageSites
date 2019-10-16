@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bgLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    map:mapType="hybrid"
-    map:uiZoomControls="true"
-    android:id="@+id/map"
-    tools:context=".MapsActivity"
-    android:name="com.google.android.gms.maps.SupportMapFragment"/>
+    tools:context="com.example.saheritagesites.MapsActivity">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.androidmapsextensions.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        map:mapType="hybrid"
+        map:uiZoomControls="true"
+        tools:context=".MapsActivity" />
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimaryLight"
+        android:clipToPadding="true"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <ImageView
+            android:id="@+id/sheetImage"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample0" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="false"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="address"
+                android:textAllCaps="false"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
