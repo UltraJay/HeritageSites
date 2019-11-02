@@ -30,9 +30,8 @@
         <ImageView
             android:id="@+id/sheetImage"
             android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/sample0" />
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -42,8 +41,6 @@
                 android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="false"
                 android:layout_marginTop="0dp"
                 android:gravity="center_vertical"
                 android:padding="10dp"

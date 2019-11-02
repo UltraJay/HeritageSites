@@ -1,19 +1,17 @@
 package com.example.saheritagesites;
 
 import java.io.Serializable;
-
-import com.google.android.gms.maps.model.LatLng;
-import com.google.maps.android.clustering.ClusterItem;
-
 import org.json.JSONArray;
 
-public class HeritageSite implements ClusterItem, Serializable{
-
-    private final transient LatLng mPosition;
+public class HeritageSite implements Serializable{
 
     private JSONArray imageUrls;
 
     private int mSiteID;
+
+    private double mLat;
+    private double mLng;
+
     private String mTitle;
     private String mSnippet;
 
@@ -32,16 +30,13 @@ public class HeritageSite implements ClusterItem, Serializable{
     private String mShrcode;
     private String mShrdate;
 
-    public HeritageSite (LatLng coord){
-        mPosition = coord;
-        mTitle = null;
-        mSnippet = null;
-    }
 
-    public HeritageSite(int siteID, LatLng coord, String title, String snippet, String extent, String significance, String classdesc, String accuracy, String devplan,
+
+    public HeritageSite(int siteID, double lat, double lng, String title, String snippet, String extent, String significance, String classdesc, String accuracy, String devplan,
                         String sec23, String sec16, String planparcels, String landcode, String lga, String councilref, String authdate, String shrcode, String shrdate) {
         mSiteID = siteID;
-        mPosition = coord;
+        mLat = lat;
+        mLng = lng;
         mTitle = title;
         mSnippet = snippet;
         mExtent = extent;
@@ -64,15 +59,14 @@ public class HeritageSite implements ClusterItem, Serializable{
         imageUrls = urls;
     }
 
-    @Override
-    public LatLng getPosition() { return mPosition; }
+    public double getLat() { return mLat; }
 
-    @Override
+    public double getLng() { return mLng; }
+
     public String getTitle() {
         return mTitle;
     }
 
-    @Override
     public String getSnippet() {
         return mSnippet;
     }
@@ -117,9 +111,7 @@ public class HeritageSite implements ClusterItem, Serializable{
         return mLga;
     }
 
-    public String getCouncilref() {
-        return mCouncilref;
-    }
+    public String getCouncilref() { return mCouncilref; }
 
     public String getAuthdate() {
         return mAuthdate;

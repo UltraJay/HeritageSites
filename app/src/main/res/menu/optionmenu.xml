@@ -17,6 +17,9 @@
         android:icon="@drawable/ic_chevron_right"
         android:title="View on SA Heritage Places DB" />
     <item
+        android:id="@+id/map_item"
+        android:title="View on Google Maps" />
+    <item
         android:id="@+id/report_item"
         android:title="Report a problem" />
 </menu>

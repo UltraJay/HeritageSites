@@ -16,8 +16,11 @@ import org.json.JSONException;
 
 public class SiteImagePager extends PagerAdapter {
 
+    //This class handles the image slideshow on the site description page
+
     private Context context;
 
+    //A JSON array containing any available image URLs
     private JSONArray imageUrls;
 
     public SiteImagePager (Context context, JSONArray urls) {
@@ -27,24 +30,28 @@ public class SiteImagePager extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position){
+        //This creates each page of the ViewPager
+        //A Viewpager can contain an entire layout, but this one only includes a single ImageView
         View view = LayoutInflater.from(context).inflate(R.layout.imagefragment, container, false);
         ImageView mImageView = view.findViewById(R.id.imagedisplay);
-        //mImageView.setImageDrawable(context.getResources().getDrawable(getImage(position)));
-        String url = null;
+        String url;
         try {
-            url = imageUrls.getString(position);
+            if (imageUrls.length() > 0) {
+                //Grab the image url for the current page and load it into the ImageView
+                url = imageUrls.getString(position);
+                Picasso.with(context)
+                        .load("http://ultra.australiasoutheast.cloudapp.azure.com/" + url)
+                        .error(R.drawable.noimage)
+                        .into(mImageView);
+            }
+            else {
+                // If there are no images available, set the image to Heritage SA logo
+                mImageView.setImageDrawable(context.getResources().getDrawable(R.drawable.heritagelogo));
+            }
         } catch (JSONException e) {
-            Log.e("Exception: ", "Error reading JSON");
+            Log.e("Exception: ", "Error reading JSON.");
         }
-        if (url != null){
-            Picasso.with(context)
-                    .load("http://ultra.australiasoutheast.cloudapp.azure.com/" + url)
-                    .error(R.drawable.noimage)
-                    .into(mImageView);
-        }
-        else {
-            mImageView.setImageDrawable(context.getResources().getDrawable(R.drawable.noimage));
-        }
+
         container.addView(view);
         return view;
     }
@@ -56,7 +63,9 @@ public class SiteImagePager extends PagerAdapter {
 
     @Override
     public int getCount() {
-        if (imageUrls != null) {
+        //This function is needed to create every page of the ViewPager
+        //The number of pages is either the number of image URLs or just one - the logo
+        if (imageUrls.length() > 0) {
             return imageUrls.length();
         }
         else {
@@ -69,18 +78,15 @@ public class SiteImagePager extends PagerAdapter {
         return object == view;
     }
 
-    public int getImage(int position){
-        switch (position){
-            case 0:
-                return R.drawable.sample0;
-            case 1:
-                return R.drawable.sample1;
-            case 2:
-                return R.drawable.sample2;
-            case 3:
-                return R.drawable.sample3;
-            default:
-                return R.drawable.sample0;
+    public String getImage(int position){
+        //Returns the url for the image the ViewPager is currently on
+        //Called when zooming in on an image
+        String url = null;
+        try {
+            url = imageUrls.getString(position);
+        } catch (JSONException e) {
+            Log.e("Exception: ", "Error reading JSON.");
         }
+        return url;
     }
 }
