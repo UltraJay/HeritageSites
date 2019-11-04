@@ -55,29 +55,19 @@ public class HeritageSite implements Serializable{
         mShrdate = shrdate;
     }
 
-    public void setImageUrls (JSONArray urls){
-        imageUrls = urls;
-    }
+    public void setImageUrls (JSONArray urls){ imageUrls = urls; }
 
     public double getLat() { return mLat; }
 
     public double getLng() { return mLng; }
 
-    public String getTitle() {
-        return mTitle;
-    }
+    public String getTitle() { return mTitle; }
 
-    public String getSnippet() {
-        return mSnippet;
-    }
+    public String getSnippet() { return mSnippet; }
 
-    public JSONArray getImageUrls() {
-        return imageUrls;
-    }
+    public JSONArray getImageUrls() { return imageUrls; }
 
-    public String getExtent() {
-        return mExtent;
-    }
+    public String getExtent() { return mExtent; }
 
     public String getSignificance() { return mSignificance; }
 
@@ -87,39 +77,23 @@ public class HeritageSite implements Serializable{
 
     public String getAccuracy() { return mAccuracy; }
 
-    public String getDevplan() {
-        return mDevplan;
-    }
+    public String getDevplan() { return mDevplan; }
 
-    public String getSec23() {
-        return mSec23;
-    }
+    public String getSec23() { return mSec23; }
 
-    public String getSec16() {
-        return mSec16;
-    }
+    public String getSec16() { return mSec16; }
 
-    public String getPlanparcels() {
-        return mPlanparcels;
-    }
+    public String getPlanparcels() { return mPlanparcels; }
 
-    public String getLandcode() {
-        return mLandcode;
-    }
+    public String getLandcode() { return mLandcode; }
 
-    public String getLga() {
-        return mLga;
-    }
+    public String getLga() { return mLga; }
 
     public String getCouncilref() { return mCouncilref; }
 
-    public String getAuthdate() {
-        return mAuthdate;
-    }
+    public String getAuthdate() { return mAuthdate; }
 
-    public String getShrcode() {
-        return mShrcode;
-    }
+    public String getShrcode() { return mShrcode; }
 
     public String getShrdate() { return mShrdate; }
 
