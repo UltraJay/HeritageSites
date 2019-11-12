@@ -32,8 +32,10 @@ public class HeritageSite implements Serializable{
 
 
 
-    public HeritageSite(int siteID, double lat, double lng, String title, String snippet, String extent, String significance, String classdesc, String accuracy, String devplan,
-                        String sec23, String sec16, String planparcels, String landcode, String lga, String councilref, String authdate, String shrcode, String shrdate) {
+    public HeritageSite(int siteID, double lat, double lng, String title, String snippet, String extent,
+                        String significance, String classdesc, String accuracy, String devplan,
+                        String sec23, String sec16, String planparcels, String landcode, String lga,
+                        String councilref, String authdate, String shrcode, String shrdate) {
         mSiteID = siteID;
         mLat = lat;
         mLng = lng;
